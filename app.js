@@ -29,12 +29,16 @@ app.use(express.json());
 const limiter = rateLimit({ windowMs: 15 * 60 * 100, max: 3000 });
 
 // DB Connetion
-// const URI = "";
-// const OPTION = { user: "", pass: "", autoIndex: true };
-// mongoose.connect(URI, OPTION, (error) => {
-//   console.log("DB Connected Successfully");
-//   console.log(error);
-// });
+const URI =
+  "mongodb+srv://<username>:<password>@cluster0.qkmfuva.mongodb.net/?retryWrites=true&w=majority";
+const OPTION = { user: "MINHAJ", pass: "88336MMK", autoIndex: true };
+mongoose.connect(URI, OPTION, (error) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("DB Connected Successfully");
+  }
+});
 
 // Routing Implement
 app.use("/api/v1", router);
