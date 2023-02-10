@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { BrowserRouter } from "react-router-dom";
-import { Route, Switch } from "react-router";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 
 class App extends Component {
@@ -8,11 +7,13 @@ class App extends Component {
     return (
       <Fragment>
         <BrowserRouter>
-          <Switch>
-            <Route />
-          </Switch>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+          </Routes>
         </BrowserRouter>
       </Fragment>
     );
   }
 }
+
+export default App;

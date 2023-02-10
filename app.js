@@ -29,12 +29,12 @@ app.use(express.json());
 const limiter = rateLimit({ windowMs: 15 * 60 * 100, max: 3000 });
 
 // DB Connetion
-const URI = "";
-const OPTION = { user: "", pass: "", autoIndex: true };
-mongoose.connect(URI, OPTION, (error) => {
-  console.log("DB Connected Successfully");
-  console.log(error);
-});
+// const URI = "";
+// const OPTION = { user: "", pass: "", autoIndex: true };
+// mongoose.connect(URI, OPTION, (error) => {
+//   console.log("DB Connected Successfully");
+//   console.log(error);
+// });
 
 // Routing Implement
 app.use("/api/v1", router);
