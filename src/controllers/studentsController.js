@@ -3,7 +3,7 @@ const studentsModel = require("../models/studentsModel");
 // Create Student
 exports.createStudent = (req, res) => {
   let reqBody = req.body;
-  studentsModel.create(reqBody, (req, data) => {
+  studentsModel.create(reqBody, (err, data) => {
     if (err) {
       res.status(400).json({ status: "fail", data: err });
     } else {
@@ -15,7 +15,7 @@ exports.createStudent = (req, res) => {
 // Read Students
 exports.readStudents = (req, res) => {
   let Query = {};
-  let Projection = "firstName lastName email mobile department shift";
+  let Projection = "firstName lastName email mobile department semester shift";
 
   studentsModel.find(Query, Projection, (err, data) => {
     if (err) {

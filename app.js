@@ -30,7 +30,7 @@ const limiter = rateLimit({ windowMs: 15 * 60 * 100, max: 3000 });
 
 // DB Connetion
 const URI =
-  "mongodb+srv://<username>:<password>@cluster0.qkmfuva.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://<username>:<password>@cluster0.qkmfuva.mongodb.net/CRUD?retryWrites=true&w=majority";
 const OPTION = { user: "MINHAJ", pass: "88336MMK", autoIndex: true };
 mongoose.connect(URI, OPTION, (error) => {
   if (error) {

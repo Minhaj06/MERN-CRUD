@@ -28,28 +28,16 @@ const studentSchema = mongoose.Schema(
     },
     department: {
       type: String,
-      enum: ["computer", "civil", "electrical", "electronics", "mechatronics"],
       required: [true, "Please select your department"],
+    },
+    semester: {
+      type: String,
+      required: [true, "Please select your semester"],
     },
     shift: {
       type: String,
-      enum: ["first", "second"],
+      enum: ["First", "Second"],
       required: [true, "Please select your shift"],
-    },
-    password: {
-      type: String,
-      required: [true, "Password is required"],
-      validate: {
-        validator: (value) =>
-          validator.isStrongPassword(value, {
-            minLength: 6,
-            minLowercase: 3,
-            minNumbers: 1,
-            minUppercase: 1,
-            minSymbols: 1,
-          }),
-        message: "Password {VALUE} is not strong enough.",
-      },
     },
   },
   {
