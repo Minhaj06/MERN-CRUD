@@ -1,10 +1,13 @@
 import React from "react";
 import UpdateForm from "../../components/studentCRUD/UpdateForm";
+import { useParams } from "react-router-dom";
 
 function UpdatePage() {
+  let { id } = useParams();
+
   return (
     <div>
-      <UpdateForm />
+      <UpdateForm id={id} />
     </div>
   );
 }

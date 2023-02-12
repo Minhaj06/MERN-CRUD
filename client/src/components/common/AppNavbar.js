@@ -8,8 +8,10 @@ function AppNavbar() {
     <>
       <Navbar bg="dark" variant="dark" expand="md">
         <Container className="container-sm">
-          <Navbar.Brand className="fw-bold fs-3" href="#home">
-            CRUD
+          <Navbar.Brand className="fw-bold fs-3">
+            <NavLink className="text-white text-decoration-none" to="/">
+              CRUD
+            </NavLink>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

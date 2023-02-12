@@ -3,8 +3,11 @@ import Form from "react-bootstrap/Form";
 import { errorToast, isEmpty, successToast } from "../../helpers/validation";
 import FullScreenLoader from "../common/FullScreenLoader";
 import { Create } from "../../services/CRUD";
+import { useNavigate } from "react-router";
 
 function CreateFrom() {
+  const navigate = useNavigate();
+
   let firstName,
     lastName,
     email,
@@ -47,13 +50,7 @@ function CreateFrom() {
           if (result === true) {
             successToast("Student added successfully");
 
-            firstName.value = "";
-            lastName.value = "";
-            email.value = "";
-            mobile.value = "";
-            department.value = "";
-            semester.value = "";
-            shift.value = "";
+            navigate("/");
           } else {
             errorToast("Student not added. Try again.");
           }

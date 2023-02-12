@@ -26,6 +26,21 @@ exports.readStudents = (req, res) => {
   });
 };
 
+// Read Student By Id
+exports.readStudentById = (req, res) => {
+  let id = req.params.id;
+  let Query = { _id: id };
+  let Projection = "firstName lastName email mobile department semester shift";
+
+  studentsModel.findOne(Query, Projection, (err, data) => {
+    if (err) {
+      res.status(400).json({ status: "fail", data: err });
+    } else {
+      res.status(200).json({ status: "success", data });
+    }
+  });
+};
+
 // Update Students
 exports.updateStudent = (req, res) => {
   let id = req.params.id;

@@ -43,12 +43,29 @@ export function Read() {
     });
 }
 
+export function ReadById(id) {
+  let URL = `/api/v1/readStudentById/${id}`;
+  return axios
+    .get(URL)
+    .then((res) => {
+      if (res.status === 200) {
+        return res.data["data"];
+      } else {
+        return false;
+      }
+    })
+    .catch((err) => {
+      console.log(err);
+      return false;
+    });
+}
+
 export function Delete(id) {
-  let URL = `/api/v1/updateStudent/${id}`;
+  let URL = `/api/v1/deleteStudent/${id}`;
   return axios
     .delete(URL)
     .then((res) => {
-      if (res.status === 300) {
+      if (res.status === 200) {
         return true;
       } else {
         return false;
@@ -61,7 +78,7 @@ export function Delete(id) {
 }
 
 export function Update(id, firstName, lastName, email, mobile, department, semester, shift) {
-  let URL = `/api/v1/deleteStudent/${id}`;
+  let URL = `/api/v1/updateStudent/${id}`;
   let postBody = {
     firstName: firstName,
     lastName: lastName,
